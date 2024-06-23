@@ -1,12 +1,12 @@
 import { ConnectKits } from '@/components/ConnectKits';
 
 export const meta = {
-    description: '',
-    emoji: '⚡',
-    showDetailsSection: false,
-    contributors: [
-        'lucemans'
-    ]
+	description: '',
+	emoji: '⚡',
+	showDetailsSection: false,
+	contributors: [
+		'luc.eth'
+	]
 };
 
 # Quickstart
@@ -91,21 +91,17 @@ import { formatAddress } from 'ens-tools';
 
 export const YourApp: FC = () => {
     const { address } = useAccount();
-    const { data: ensName } = useEnsName({
-        address,
-    });
-    const { data: ensAvatar } = useEnsAvatar({
-        address,
-    });
+    const { data: name } = useEnsName({ address });
+    const { data: avatar } = useEnsAvatar({ name });
 
     return (
         <div className="flex items-center gap-2">
             <img
-                src={ensAvatar || 'https://v3x.space/ens-docs/pfp.webp'}
+                src={avatar || 'https://docs.ens.domains/fallback.svg'}
                 className="w-8 h-8 rounded-full"
             />
             <div className="flex flex-col gap-0 leading-3 pr-10">
-                {ensName && <span className="font-bold">{ensName}</span>}
+                {name && <span className="font-bold">{name}</span>}
                 <span>{formatAddress(address)}</span>
             </div>
         </div>
@@ -142,14 +138,25 @@ func main() {
 
 <LiveDemo id="name_lookup" />
 
-<CodeGroup>
+<CodeGroup title="Lookup a name">
 
 ```tsx {{ variant: "wagmi", link: "https://wagmi.sh/react/hooks/useEnsAddress", stackblitz: "https://stackblitz.com/edit/ens-wagmi-quickstart-lookup" }}
-// TODO: Write Code Snippet
-```
+import { useAccount, useEnsAddress, useEnsAvatar, useEnsName } from 'wagmi';
+import { normalize } from 'viem/ens';
+import { formatAddress } from '@ens-tools/format';
 
-```tsx {{ variant: "ens-tools" }}
-// TODO: Write Code Snippet
+export const NameLookup = () => {
+    const name = normalize("luc.eth");
+    const { data: avatar } = useEnsAvatar({ name })
+    const { data: ethereum } = useEnsAddress({ name, coinType: 60 });
+
+    return (
+        <div>
+			{ethereum && formatAddress(ethereum)}<br />
+			{avatar && <img src={avatar} />}
+		</div>
+    );
+};
 ```
 
 ```go {{ variant: "go", name: "Go" }}

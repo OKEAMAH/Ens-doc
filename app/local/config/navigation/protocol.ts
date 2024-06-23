@@ -67,7 +67,7 @@ export const navigation: SectionData[] = [
         name: 'Using ENS',
         href: '/web',
         icon: '📖',
-        activePattern: /^\/web(\/.*)?/,
+        activePattern: /^\/d?web(\/.*)?/,
         links: [
             {
                 title: '',
@@ -84,14 +84,14 @@ export const navigation: SectionData[] = [
                 icon: '🌐',
                 links: [
                     {
-                        title: 'Quickstart',
-                        href: '/web/quickstart',
-                        icon: '⚡',
-                    },
-                    {
                         title: 'Tools and Libraries',
                         href: '/web/libraries',
                         icon: '🛠️',
+                    },
+                    {
+                        title: 'Quickstart',
+                        href: '/web/quickstart',
+                        icon: '⚡',
                     },
                     {
                         title: 'Address Lookup',
@@ -108,11 +108,6 @@ export const navigation: SectionData[] = [
                         title: 'Primary Names',
                         href: '/web/reverse',
                         icon: '🔍',
-                    },
-                    {
-                        title: 'Multichain',
-                        href: '/web/multichain',
-                        icon: '⛓️',
                     },
                     {
                         title: 'List Names',
@@ -134,8 +129,18 @@ export const navigation: SectionData[] = [
                         href: '/web/subdomains',
                     },
                     {
+                        title: 'Multichain',
+                        href: '/web/multichain',
+                        icon: '⛓️',
+                    },
+                    {
                         title: 'Subgraph',
                         href: '/web/subgraph',
+                    },
+                    {
+                        title: 'Decentralized Web',
+                        href: '/dweb/intro',
+                        wip: true,
                     },
                     // {
                     //     title: 'Sign In With Ethereum (SIWE)',
@@ -404,6 +409,26 @@ export const navigation: SectionData[] = [
             {
                 title: '📖 Proposals Term 5',
                 links: [
+                    {
+                        // eslint-disable-next-line prettier/prettier
+                        title: '5.8 - [Social] ENS Steward Vesting Proposal',
+                        href: '/dao/proposals/5.8',
+                    },
+                    {
+                        // eslint-disable-next-line prettier/prettier
+                        title: '5.7 - [Social] Security Council',
+                        href: '/dao/proposals/5.7',
+                    },
+                    {
+                        // eslint-disable-next-line prettier/prettier
+                        title: '5.6 - [Executable] Enable Self-Funding for the Endowment',
+                        href: '/dao/proposals/5.6',
+                    },
+                    {
+                        // eslint-disable-next-line prettier/prettier
+                        title: '5.5 - [Executable] Funding Request: ENS Public Goods Working Group Term 5 (Q1/Q2)',
+                        href: '/dao/proposals/5.5',
+                    },
                     {
                         // eslint-disable-next-line prettier/prettier
                         title: '5.4.2 - [Social] Funding Request: ENS Meta-Governance Working Group Term 5 (Q1/Q2)',
